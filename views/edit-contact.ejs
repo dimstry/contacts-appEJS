@@ -1,0 +1,35 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Form Ubah data Contact</h2>
+      
+      <% if(typeof errors != 'undefined') {%>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+          <% errors.forEach(error => {%>
+              <li><%= error.msg %></li>
+           <% }) %>
+          </ul>
+        </div>
+      <% } %>
+      
+      
+      <form method="post" action="/contact/update" autocomplete="off">
+        <input type="hidden" name="oldNama" value="<%= (contact.oldNama) ? contact.oldNama : contact.nama %>">
+        <div class="form-group">
+          <label for="nama">Nama</label>
+          <input type="text" class="form-control" id="nama" name="nama" required value="<%= contact.nama %>"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required value="<%= contact.email %>"/>
+        </div>
+        <div class="form-group">
+          <label for="nohp">No Hp</label>
+          <input type="text" class="form-control" id="nohp" name="noHp" required value="<%= contact.noHp %>"/>
+        </div>
+        <button type="submit" class="btn btn-info">Ubah Data</button>
+      </form>
+    </div>
+  </div>
+</div>
